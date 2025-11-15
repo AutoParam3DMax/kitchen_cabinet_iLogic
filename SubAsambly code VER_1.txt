@@ -1,0 +1,20 @@
+'Wymiary bocznych ścian obudowy safki
+Parameter("ZL-01.01.001:1", "wys_obud_szuf_bok") = Wysokość_obudowy
+Parameter("ZL-01.01.001:1", "glęb_obud_szuf_bok") = Głębokość_obudowy
+Parameter("ZL-01.01.001:1", "grub_obud_szuf_bok") = Grubość_obudowy
+Parameter("ZL-01.01.001:1", "glębokość_otworu_boczna_ściana") = Grubość_obudowy - 8
+
+Parameter("ZL-01.01.001:1", "głębokość_otw_pod_kołek") = Grubość_obudowy /2
+Parameter("ZL-01.01.001:1", "rozstaw_między_kołkami") = Max(150, Rozstaw_między_otw_pod_półki)
+Parameter("ZL-01.01.001:1", "ilość_otw_pod_kołki") = Min(Ceil((Wysokość_obudowy - Położenie_1_półki) / Parameter("ZL-01.01.001:1", "rozstaw_między_kołkami")), Ilość_otw_pod_półki)
+Parameter("ZL-01.01.001:1", "pol_otw_pod_kołki_od_dołu") = Położenie_1_półki + 16
+
+
+' Wymiary górnej i dolnej ściany obudowy
+
+Parameter("ZL-01.01.002:1", "szer_obud_szuf_góra") = Szerokość_obudowy - (Grubość_obudowy*2)
+Parameter("ZL-01.01.002:1", "glęb_obud_szuf_góra") = Głębokość_obudowy
+Parameter("ZL-01.01.002:1", "grub_obud_szuf_góra") = Grubość_obudowy
+Parameter("ZL-01.01.002:1", "glębokość_otworu_łącz") = Grubość_obudowy - 8
+
+iLogicVb.UpdateWhenDone = True

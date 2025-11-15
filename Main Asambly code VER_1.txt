@@ -1,0 +1,63 @@
+' Wymiary obudowy
+Parameter("ZL-01.01.000:1", "Wysokość_obudowy") = Max(WYSOKOŚĆ, 300)
+Parameter("ZL-01.01.000:1", "Szerokość_obudowy") = Max(SZEROKOŚĆ, 300)
+Parameter("ZL-01.01.000:1", "Głębokość_obudowy") = Max(GŁĘGOKOŚĆ, 150)
+Parameter("ZL-01.01.000:1", "Grubość_obudowy") = GRUBOŚĆ_SZAFKI
+Parameter("ZL-01.01.000:1", "Ilość_otw_pod_półki") = ILOŚĆ_PÓŁEK
+Parameter("ZL-01.01.000:1", "Rozstaw_między_otw_pod_półki") = ROZSTAW_MIĘDZY_PÓŁKAMI
+Parameter("ZL-01.01.000:1", "Położenie_1_półki") = POŁOŻENIE_PIERWSZEJ_PÓŁKI
+
+' Wymiary zaślepki
+
+Parameter("ZL-01.00.001:1", "szerokość_zaślepki") = Max(SZEROKOŚĆ, 300)
+Parameter("ZL-01.00.001:1", "wysokość_zaślepki") = Max(WYSOKOŚĆ, 300)
+
+' Wymiary półki
+
+Parameter("ZL-01.00.002:1", "glębokość_półki") = Max(GŁĘGOKOŚĆ, 150)
+Parameter("ZL-01.00.002:1", "szerokość_półki") = SZEROKOŚĆ - (GRUBOŚĆ_SZAFKI*2) - 3
+położenie_pólki = Min(POŁOŻENIE_PIERWSZEJ_PÓŁKI, WYSOKOŚĆ - 100)
+rozstaw_półek_ZL = Max(150, ROZSTAW_MIĘDZY_PÓŁKAMI)
+ilość_półek_ZL = Min(Ceil((WYSOKOŚĆ - położenie_pólki) / rozstaw_półek_ZL), ILOŚĆ_PÓŁEK)
+Parameter("ZL-01.00.002:1", "grubość_półki") = GRUBOŚĆ_PÓŁKI
+
+' wymiary drzwi
+
+Parameter("ZL-01.00.003:1", "szerokość_drzwi") = Max(SZEROKOŚĆ/2, 150)
+Parameter("ZL-01.00.003:1", "wysokość_drzwi") = Max(WYSOKOŚĆ, 300)
+
+
+Select Case POŁOŻENIE_DRZWi
+Case "Closed"
+  iPart.ChangeRow("Furniture hinge-30 deg:1", "Furniture hinge-90")
+  iPart.ChangeRow("Furniture hinge-30 deg:2", "Furniture hinge-90")
+Case "Open"
+  iPart.ChangeRow("Furniture hinge-30 deg:1", "Furniture hinge-0")
+  iPart.ChangeRow("Furniture hinge-30 deg:2", "Furniture hinge-0")
+Case "HalfOpen"
+  iPart.ChangeRow("Furniture hinge-30 deg:1", "Furniture hinge-45")
+  iPart.ChangeRow("Furniture hinge-30 deg:2", "Furniture hinge-45")
+Case "1HalfOpen"
+  iPart.ChangeRow("Furniture hinge-30 deg:1", "Furniture hinge-90")
+  iPart.ChangeRow("Furniture hinge-30 deg:2", "Furniture hinge-45")
+Case "2HalfOpen"
+  iPart.ChangeRow("Furniture hinge-30 deg:1", "Furniture hinge-45")
+  iPart.ChangeRow("Furniture hinge-30 deg:2", "Furniture hinge-90")
+Case "1Open"
+  iPart.ChangeRow("Furniture hinge-30 deg:1", "Furniture hinge-90")
+  iPart.ChangeRow("Furniture hinge-30 deg:2", "Furniture hinge-0")
+Case "2Open"
+  iPart.ChangeRow("Furniture hinge-30 deg:1", "Furniture hinge-0")
+  iPart.ChangeRow("Furniture hinge-30 deg:2", "Furniture hinge-90")
+  
+End Select
+
+
+
+' Zawiasy
+
+rozstaw_mędzy_zawiasami = WYSOKOŚĆ - 196
+
+
+
+iLogicVb.UpdateWhenDone = True
