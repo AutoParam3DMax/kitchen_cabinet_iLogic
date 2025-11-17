@@ -17,27 +17,27 @@ The project represents step 1 in the approach to full parameterization of the dr
 
 ⚙️ How It Works
 
-Open the provided Inventor part file (.ipt).
+1. Open the provided Inventor part file (.ipt).
 
-Modify values in the parameter form to change geometry.
+2. Modify values in the parameter form to change geometry.
 
-The iLogic rule updates the model automatically after each change.
+3. The iLogic rule updates the model automatically after each change.
 
-The workflow ensures stable relationships and predictable behavior, even under large parameter variations.
+4. The workflow ensures stable relationships and predictable behavior, even under large parameter variations.
 
 🧩 Example Workflow
 
-Download the project files.
+1. Download the project files.
 
-Open the main .ipt file in Autodesk Inventor.
+2. Open the main .ipt file in Autodesk Inventor.
 
-Go to Manage → Parameters or open the custom iLogic Form.
+3. Go to Manage → Parameters or open the custom iLogic Form.
 
-Change dimensions such as width, height, spacing, or component size.
+4. Change dimensions such as width, height, spacing, or component size.
 
-Run the iLogic rule if needed to trigger additional automated logic.
+5. Run the iLogic rule if needed to trigger additional automated logic.
 
-Observe how the model updates smoothly and consistently.
+6. Observe how the model updates smoothly and consistently.
 
 📌 Project Roadmap
 
@@ -71,11 +71,11 @@ The included video explains the complete reasoning behind the design approach.
 
 🧰 Requirements
 
-Autodesk Inventor 2024 (Polish) or newer
+ - Autodesk Inventor 2024 (Polish) or newer
 
-iLogic enabled (built-in)
+ - iLogic enabled (built-in)
 
-Access to the project .ipt file
+ - Access to the project .ipt file
 
 🧑‍💻 Author
 
